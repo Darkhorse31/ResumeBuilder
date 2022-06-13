@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import { Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
@@ -5,15 +6,15 @@ import React from "react";
 const MainPage = () => {
   return (
     <>
-      <Container maxWidth="lg">
+      <div style={{ width: "80%", marginInline: "auto" }}>
         <Typography
           variant="h3"
-          color={"blue"}
+          color={"royalblue"}
           fontWeight="bold"
           sx={{
             fontSize: {
               lg: "49px",
-              xs: "40px"
+              xs: "40px",
             },
           }}
         >
@@ -22,8 +23,10 @@ const MainPage = () => {
         <Typography variant="subtitle1" sx={{ color: "red" }}>
           Please Don`t Reload Page.
         </Typography>
-        <div style={{ marginTop: "30px" }}></div>
-      </Container>
+        <div style={{ marginTop: "30px", width: "100%" }}>
+          <Outlet />
+        </div>
+      </div>
     </>
   );
 };
