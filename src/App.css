@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  background: rgb(238,174,202);
+  background: -moz-linear-gradient(73deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background: -webkit-linear-gradient(73deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background: linear-gradient(73deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeaeca",endColorstr="#94bbe9",GradientType=1); 
+  width: 100%;
+  min-height: 100vh;
 }
 
 .App-logo {
