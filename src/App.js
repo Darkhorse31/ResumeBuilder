@@ -5,6 +5,7 @@ import Basics from "./components/Basics";
 import Work from "./components/Work";
 import Education from "./components/Education";
 import Life from "./components/Life";
+import Templet from "./components/Templet";
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
           <Route path="education" element={<Education />} />
           <Route path="summary" element={<Life />} />
         </Route>
+        <Route path="/templet" element={<Templet />} />
       </Routes>
     </div>
   );

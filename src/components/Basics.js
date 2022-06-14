@@ -1,7 +1,25 @@
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { Button, InputAdornment, TextField, Typography } from "@mui/material";
 import React from "react";
 import "./Basic.scss";
+import { useForm } from "react-hook-form";
+import { useDispatch,useSelector } from "react-redux";
+import { addBasicData } from "../Redux/basicSlice";
+import { useNavigate } from "react-router-dom";
 const Basics = () => {
+  const Navigate = useNavigate();
+  const dispatch = useDispatch();
+  const data=useSelector(state=>state.BasicData)
+  console.log(data);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    dispatch(addBasicData(data));
+    Navigate("work");
+  };
   return (
     <>
       <Typography
@@ -13,7 +31,7 @@ const Basics = () => {
       >
         Basic Information
       </Typography>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <TextField
           label="Full Name"
           variant="outlined"
@@ -28,7 +46,9 @@ const Basics = () => {
               background: "transparent",
             },
           }}
+          {...register("name", { required: true })}
         />
+        {errors.name && <p style={{ color: "red" }}>Required *</p>}
         <div className="subdiv">
           <TextField
             type={"email"}
@@ -41,6 +61,7 @@ const Basics = () => {
                 background: "transparent",
               },
             }}
+            {...register("email", { required: true })}
           />
           <TextField
             type={"tel"}
@@ -53,11 +74,12 @@ const Basics = () => {
                 background: "transparent",
               },
             }}
+            {...register("phone", { required: true })}
           />
         </div>
         <div className="subdiv">
           <TextField
-            label="Proffesion"
+            label="Profesion"
             variant="outlined"
             required
             sx={{
@@ -66,12 +88,14 @@ const Basics = () => {
                 background: "transparent",
               },
             }}
+            {...register("Profession", { required: true })}
           />
 
           <TextField
             type={"text"}
             label="Webiste URL"
             variant="outlined"
+            {...register("website")}
             sx={{
               input: {
                 color: "royalblue",
@@ -95,6 +119,7 @@ const Basics = () => {
               background: "transparent",
             },
           }}
+          {...register("country", { required: true })}
         />
         <TextField
           type={"text"}
@@ -111,6 +136,7 @@ const Basics = () => {
               background: "transparent",
             },
           }}
+          {...register("city", { required: true })}
         />
         <TextField
           type={"text"}
@@ -127,6 +153,7 @@ const Basics = () => {
               background: "transparent",
             },
           }}
+          {...register("Pin Code", { required: true })}
         />
         <TextField
           type={"text"}
@@ -143,13 +170,24 @@ const Basics = () => {
               background: "transparent",
             },
           }}
+          {...register("address", { required: true })}
         />
         <TextField
           type={"text"}
           label="Linked In"
           variant="outlined"
           InputProps={{
-            endAdornment: <InputAdornment position="end"></InputAdornment>,
+            endAdornment: (
+              <InputAdornment position="end">
+                <LinkedInIcon
+                  style={{
+                    fontSize: "20px",
+                    position: "absolute",
+                    right: "10",
+                  }}
+                />
+              </InputAdornment>
+            ),
           }}
           required
           sx={{
@@ -162,6 +200,7 @@ const Basics = () => {
               background: "transparent",
             },
           }}
+          {...register("linkedin", { required: true })}
         />
         <TextField
           type={"text"}
@@ -178,6 +217,7 @@ const Basics = () => {
               background: "transparent",
             },
           }}
+          {...register("github", { required: true })}
         />
         <Button
           type="submit"

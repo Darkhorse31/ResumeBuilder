@@ -3,11 +3,22 @@ import {
   TextField,
   InputLabel,
   TextareaAutosize,
-  Button
+  Button,
 } from "@mui/material";
 import React from "react";
 import "./Basic.scss";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux/es/exports";
+import { addeduData } from "../Redux/educationSlice";
 const Education = () => {
+  const { register, handleSubmit } = useForm();
+  const dispatch = useDispatch();
+  const Navigate = useNavigate();
+  const onSubmit = (data) => {
+    dispatch(addeduData(data));
+    Navigate("/summary");
+  };
   return (
     <>
       <Typography
@@ -16,7 +27,7 @@ const Education = () => {
       >
         Education
       </Typography>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <TextField
           type={"text"}
           label="Highest Education You have."
@@ -32,6 +43,7 @@ const Education = () => {
               background: "transparent",
             },
           }}
+          {...register("Education", { required: true })}
         />
         <TextField
           type={"text"}
@@ -48,6 +60,7 @@ const Education = () => {
               background: "transparent",
             },
           }}
+          {...register("university_name", { required: true })}
         />
         <div className="subdiv">
           <div>
@@ -57,7 +70,11 @@ const Education = () => {
             >
               Start Date
             </InputLabel>
-            <TextField type={"date"} />
+            <TextField
+              type={"date"}
+              required
+              {...register("edu_startDate", { required: true })}
+            />
           </div>
           <div>
             <InputLabel
@@ -66,7 +83,11 @@ const Education = () => {
             >
               End Date
             </InputLabel>
-            <TextField type={"date"} />
+            <TextField
+              type={"date"}
+              required
+              {...register("end_date", { required: true })}
+            />
           </div>
         </div>
         <div>
@@ -81,6 +102,7 @@ const Education = () => {
               color: "royalblue",
               fontSize: "15px",
             }}
+            {...register("edu_summary", { required: true })}
           />
         </div>
         <Button

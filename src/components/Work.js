@@ -7,7 +7,18 @@ import {
 } from "@mui/material";
 import React from "react";
 import "./Basic.scss";
+import { useForm } from "react-hook-form";
+import {useNavigate} from "react-router-dom";
+import { useDispatch } from "react-redux/es/exports";
+import { addWorkData } from "../Redux/work";
 const Work = () => {
+  const { register, handleSubmit } = useForm();
+  const dispatch = useDispatch();
+  const Navigate = useNavigate();
+  const onSubmit = (data) => {
+    dispatch(addWorkData(data))
+    Navigate("/education")
+  };
   return (
     <>
       <Typography
@@ -16,7 +27,7 @@ const Work = () => {
       >
         Experience
       </Typography>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <div className="subdiv2">
           <TextField
             label="Name of Comapny"
@@ -33,6 +44,7 @@ const Work = () => {
                 background: "transparent",
               },
             }}
+            {...register("company_name", { required: true })}
           />
           <TextField
             label="Role in Company"
@@ -49,6 +61,7 @@ const Work = () => {
                 background: "transparent",
               },
             }}
+            {...register("role", { required: true })}
           />
           <TextField
             label="Website of Comapny if"
@@ -64,6 +77,7 @@ const Work = () => {
                 background: "transparent",
               },
             }}
+            {...register("website_of_company", {})}
           />
         </div>
         <div className="subdiv">
@@ -82,15 +96,13 @@ const Work = () => {
                   background: "transparent",
                 },
               }}
+              {...register("start_date", { required: true })}
             />
           </div>
           <div>
-            <InputLabel sx={{ textAlign: "left" }} required>
-              End Date
-            </InputLabel>
+            <InputLabel sx={{ textAlign: "left" }}>End Date</InputLabel>
             <TextField
               variant="outlined"
-              required
               type={"date"}
               sx={{
                 input: {
@@ -98,6 +110,7 @@ const Work = () => {
                   background: "transparent",
                 },
               }}
+              {...register("end_date",{required:false})}
             />
           </div>
         </div>
@@ -113,6 +126,7 @@ const Work = () => {
               color: "royalblue",
               fontSize: "15px",
             }}
+            {...register("Summary_experience", {})}
           />
         </div>
         <Button

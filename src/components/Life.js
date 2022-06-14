@@ -1,15 +1,25 @@
-import { LinkedCameraOutlined, } from "@mui/icons-material";
+import { LinkedCameraOutlined } from "@mui/icons-material";
 import {
   Typography,
   TextareaAutosize,
   InputLabel,
   TextField,
   InputAdornment,
-  Button
+  Button,
 } from "@mui/material";
 import React from "react";
-
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux/es/exports";
+import { useNavigate } from "react-router-dom";
+import { addlifeSlice } from "../Redux/lifeSlice";
 const Life = () => {
+  const { register, handleSubmit } = useForm();
+  const dispatch = useDispatch();
+  const Navigate = useNavigate();
+  const onSubmit = (data) => {
+    dispatch(addlifeSlice(data));
+    Navigate("/templet")
+  };
   return (
     <>
       <Typography
@@ -18,7 +28,7 @@ const Life = () => {
       >
         Summary
       </Typography>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <InputLabel htmlFor="photo" sx={{ textAlign: "left" }} required>
             Select Image
@@ -44,6 +54,7 @@ const Life = () => {
                 </InputAdornment>
               ),
             }}
+            {...register("image", { required: true })}
           />
         </div>
         <div>
@@ -56,6 +67,7 @@ const Life = () => {
               color: "royalblue",
               fontSize: "15px",
             }}
+            {...register("introduction", {})}
           />
         </div>
         <div>
@@ -68,6 +80,7 @@ const Life = () => {
               color: "royalblue",
               fontSize: "15px",
             }}
+            {...register("Hobbies", {})}
           />
         </div>
         <div>
@@ -82,6 +95,7 @@ const Life = () => {
               color: "royalblue",
               fontSize: "15px",
             }}
+            {...register("experience", {})}
           />
         </div>
         <Button
