@@ -3,13 +3,13 @@ import { Button, InputAdornment, TextField, Typography } from "@mui/material";
 import React from "react";
 import "./Basic.scss";
 import { useForm } from "react-hook-form";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addBasicData } from "../Redux/basicSlice";
 import { useNavigate } from "react-router-dom";
 const Basics = () => {
   const Navigate = useNavigate();
   const dispatch = useDispatch();
-  const data=useSelector(state=>state.BasicData)
+  const data = useSelector((state) => state.BasicData);
   console.log(data);
   const {
     register,
@@ -49,61 +49,76 @@ const Basics = () => {
           {...register("name", { required: true })}
         />
         {errors.name && <p style={{ color: "red" }}>Required *</p>}
-        <div className="subdiv">
-          <TextField
-            type={"email"}
-            label="Email"
-            variant="outlined"
-            required
-            sx={{
-              input: {
-                color: "royalblue",
-                background: "transparent",
-              },
-            }}
-            {...register("email", { required: true })}
-          />
-          <TextField
-            type={"tel"}
-            label="Phone"
-            variant="outlined"
-            required
-            sx={{
-              input: {
-                color: "royalblue",
-                background: "transparent",
-              },
-            }}
-            {...register("phone", { required: true })}
-          />
-        </div>
-        <div className="subdiv">
-          <TextField
-            label="Profesion"
-            variant="outlined"
-            required
-            sx={{
-              input: {
-                color: "royalblue",
-                background: "transparent",
-              },
-            }}
-            {...register("Profession", { required: true })}
-          />
 
-          <TextField
-            type={"text"}
-            label="Webiste URL"
-            variant="outlined"
-            {...register("website")}
-            sx={{
-              input: {
-                color: "royalblue",
-                background: "transparent",
+        <TextField
+          type={"email"}
+          label="Email"
+          variant="outlined"
+          required
+          sx={{
+            input: {
+              width: {
+                lg: "390px",
+                xm: "100%",
               },
-            }}
-          />
-        </div>
+              color: "royalblue",
+              background: "transparent",
+            },
+          }}
+          {...register("email", { required: true })}
+        />
+        <TextField
+          type={"tel"}
+          label="Phone"
+          variant="outlined"
+          required
+          sx={{
+            input: {
+              width: {
+                lg: "390px",
+                xm: "100%",
+              },
+              color: "royalblue",
+              background: "transparent",
+            },
+          }}
+          {...register("phone", { required: true })}
+        />
+
+        <TextField
+          label="Profesion"
+          variant="outlined"
+          required
+          sx={{
+            input: {
+              width: {
+                lg: "390px",
+                xm: "100%",
+              },
+              color: "royalblue",
+              background: "transparent",
+            },
+          }}
+          {...register("Profession", { required: true })}
+        />
+
+        <TextField
+          type={"text"}
+          label="Webiste URL"
+          variant="outlined"
+          {...register("website")}
+          sx={{
+            input: {
+              width: {
+                lg: "390px",
+                xm: "100%",
+              },
+              color: "royalblue",
+              background: "transparent",
+            },
+          }}
+        />
+
         <TextField
           type={"text"}
           label="Country"
