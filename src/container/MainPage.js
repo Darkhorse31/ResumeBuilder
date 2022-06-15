@@ -9,7 +9,7 @@ const MainPage = () => {
       <div style={{ width: "80%", marginInline: "auto" }}>
         <Typography
           variant="h3"
-          color={"royalblue"}
+          color={"gray"}
           fontWeight="bold"
           sx={{
             fontSize: {
