@@ -92,7 +92,7 @@ const Education = () => {
         </div>
         <div>
           <InputLabel sx={{ textAlign: "left" }}>
-            Summary of Education.
+            About.
           </InputLabel>
           <TextareaAutosize
             minRows={8}

@@ -71,7 +71,7 @@ const Life = () => {
           />
         </div>
         <div>
-          <InputLabel sx={{ textAlign: "left" }}>Hobbies</InputLabel>
+          <InputLabel sx={{ textAlign: "left" }}>Hobbies Seprated by Commos</InputLabel>
           <TextareaAutosize
             minRows={8}
             style={{
@@ -85,7 +85,7 @@ const Life = () => {
         </div>
         <div>
           <InputLabel sx={{ textAlign: "left" }}>
-            Describe your work experennce
+           Your Skills Seprated By Commos
           </InputLabel>
           <TextareaAutosize
             minRows={8}

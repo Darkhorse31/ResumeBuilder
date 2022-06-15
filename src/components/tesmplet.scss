@@ -18,6 +18,7 @@
     height: 98vh;
     z-index: 100;
     display: flex;
+   
 
     @media (max-width:768px) {
         width: 100%;
@@ -35,4 +36,23 @@
         color: rgb(15, 1, 39);
         text-rendering: optimizeLegibility;
     }
+
+    .main_right {
+        flex: .35;
+        height: 100%;
+
+        display: flex;
+        align-items: baseline;
+        flex-direction: column;
+        justify-content: space-evenly;
+        color: rgb(15, 1, 39);
+        text-rendering: optimizeLegibility;
+      
+    }
+}
+
+.left_side {
+    text-align: left;
+    line-height: 0;
+    align-self: baseline;
 }

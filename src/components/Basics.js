@@ -1,6 +1,6 @@
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { Button, InputAdornment, TextField, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import "./Basic.scss";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +11,10 @@ const Basics = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.BasicData);
   console.log(data);
+  useEffect(() => {
+    console.log("This is run");
+    
+  }, []);
   const {
     register,
     handleSubmit,
