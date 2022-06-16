@@ -18,7 +18,7 @@ const Life = () => {
   const Navigate = useNavigate();
   const onSubmit = (data) => {
     dispatch(addlifeSlice(data));
-    Navigate("/templet")
+    Navigate("/templet");
   };
   return (
     <>
@@ -57,21 +57,11 @@ const Life = () => {
             {...register("image", { required: true })}
           />
         </div>
+
         <div>
-          <InputLabel sx={{ textAlign: "left" }}>Introduce Yourself</InputLabel>
-          <TextareaAutosize
-            minRows={8}
-            style={{
-              width: "350px",
-              backgroundColor: "rgba(0,0,0,0)",
-              color: "royalblue",
-              fontSize: "15px",
-            }}
-            {...register("introduction", {})}
-          />
-        </div>
-        <div>
-          <InputLabel sx={{ textAlign: "left" }}>Hobbies Seprated by Commos</InputLabel>
+          <InputLabel sx={{ textAlign: "left" }}>
+            Hobbies Seprated by Commos
+          </InputLabel>
           <TextareaAutosize
             minRows={8}
             style={{
@@ -85,7 +75,7 @@ const Life = () => {
         </div>
         <div>
           <InputLabel sx={{ textAlign: "left" }}>
-           Your Skills Seprated By Commos
+            Your Skills Seprated By Commos
           </InputLabel>
           <TextareaAutosize
             minRows={8}

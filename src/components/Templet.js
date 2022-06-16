@@ -14,8 +14,11 @@ const Templet = () => {
   const eduData = wdata.EduData.value;
   const LifeData = wdata.lifeData.value;
   const WorkData = wdata.workData.value;
-  const hobbieStore=LifeData.Hobbies;
-  const hobbies=hobbieStore.split(",");
+  const experienceStore = LifeData.experience;
+  const Experience = experienceStore.split(",");
+  const Hobbiesstore = LifeData.Hobbies;
+  const Hobbies = Hobbiesstore.split(",");
+
   return (
     <>
       <div className="parent">
@@ -97,7 +100,7 @@ const Templet = () => {
                 justifyContent: "space-evenly",
                 width: "100%",
                 paddingBottom: "0px 10px 0px 10px ",
-                borderBottom: "2px solid #a4a7ab"
+                borderBottom: "2px solid #a4a7ab",
               }}
             >
               <div className="left_side">
@@ -144,7 +147,7 @@ const Templet = () => {
                   flexDirection: "column",
                   alignItems: "baseline",
                   gap: "10px",
-                  background:"#e6e7e8",
+                  background: "#e6e7e8",
                 }}
               >
                 <Typography
@@ -162,7 +165,7 @@ const Templet = () => {
                   style={{ textAlign: "left", padding: "10px" }}
                 >
                   <Typography variant="subtitle1">
-                    <span style={{ color: "rosybrown", fontWeight: "bold"}}>
+                    <span style={{ color: "rosybrown", fontWeight: "bold" }}>
                       {" "}
                       {WorkData.company_name}
                     </span>{" "}
@@ -175,17 +178,39 @@ const Templet = () => {
                 </div>
               </div>
             </div>
-            <div style={{textAlign:"left"}}>
-              <Typography variant="h6" sx={{height:"10px",fontWeight:"bold"}}>Skils</Typography>
+            <div style={{ textAlign: "left" }}>
+              <Typography
+                variant="h6"
+                sx={{ height: "10px", fontWeight: "bold" }}
+              >
+                Skils
+              </Typography>
               <ul>
-              {  hobbies.map((item,index)=>{
-                return <li key={index}>{item.toUpperCase()}</li>
-              })}
+                {Experience.map((item, index) => {
+                  return (
+                    <li style={{ fontWeight: "600" }} key={index}>
+                      {item.toUpperCase()}
+                    </li>
+                  );
+                })}
               </ul>
-              
             </div>
-            <div>
-              
+            <div style={{ textAlign: "left" }}>
+              <Typography
+                variant="h6"
+                sx={{ height: "10px", fontWeight: "bold" }}
+              >
+                Hobbies
+              </Typography>
+              <ul>
+                {Hobbies.map((item, index) => {
+                  return (
+                    <li style={{ fontWeight: "600" }} key={index}>
+                      {item.toUpperCase()}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
         </div>
